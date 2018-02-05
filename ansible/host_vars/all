@@ -1,0 +1,2 @@
+---
+ansible_private_ssh_key_file: ~/.ssh/desktop_ecdsa

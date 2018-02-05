@@ -1,0 +1,19 @@
+---
+- hosts: all
+  remote_user: dev
+  tasks:
+    - name: apt install packages
+      apt:
+        update_cache: yes
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - zsh
+        - tmux
+        - mosh
+      become: true
+    - name: apt upgrade packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+      become: true

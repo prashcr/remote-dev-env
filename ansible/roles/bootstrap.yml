@@ -1,0 +1,14 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: create dev user
+      user:
+        name: dev
+        group: sudo
+        password: $6$t3PQjb8F6E$isQ7nsjb7rbyl6bW1fibTgUlDzlPwcUvylvXARXZkvG55ghJ1ERZBTAOr2HIDk./pBm4j.aI4JND1k30T/N6e1
+
+    - name: add authorized key for dev user
+      authorized_key:
+        user: dev
+        key: ~/.ssh/desktop_ecdsa
